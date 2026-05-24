@@ -1,0 +1,8 @@
+[package]
+name = "ada-parse-validator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tree-sitter = "0.25.8"
+tree-sitter-ada = "0.1"

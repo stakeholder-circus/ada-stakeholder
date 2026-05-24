@@ -1,14 +1,17 @@
-# Gaps
+# ada-stakeholder Gaps
 
-This repository is scaffold-only for the Ada HorizonLanguage target. It contains baseline coordination files only. No deterministic runtime validation is claimed.
+## Deferred in this tranche
 
-## Horizon target
+- GNAT/Alire compilation is not claimed.
+- Docker validation is not claimed in this M1-safe pass.
+- Full live-provider/runtime support is deferred to the later provider rollout wave.
+- Remote publication and branch protection are not started.
 
-- Language id: ada
-- Display name: Ada
-- Horizon status: reserve-next20
-- Target class: parity-target
-- Repository: ada-stakeholder
-## Scaffold scope
+## Implemented now
 
-This scaffold-only repo intentionally has full runtime gaps. Source audit, implementation, fixtures, parity checks, package metadata, and release automation remain deferred.
+- Full deterministic `classic-six + modern-core` family coverage in the local contract catalog.
+- Grouped fallback coverage for later packet families.
+- Normalized deterministic JSON and text output.
+- `--list-values` registry output.
+- Explicit fail-fast for `--experimental-provider` and unknown experimental flags.
+- Ada source parser proof through `tree-sitter-ada`.

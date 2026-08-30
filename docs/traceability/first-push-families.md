@@ -15,4 +15,4 @@
 | `supply_chain_security` | `bin/stakeholder.py`, `src/stakeholder_registry.ads` | `rust-stakeholder/src/*` | `java-stakeholder/src/*` | `stakeholder-core/docs/program/*` | dedicated modern-core |
 | later packet families | `bin/stakeholder.py` grouped fallback renderers | `rust-stakeholder/src/*` | `java-stakeholder/src/*` | `stakeholder-core/docs/program/*` | grouped fallback |
 
-Validation evidence: `python3 scripts/validate_scaffold.py`, `make compiler-proof`, and `make test`.
+Validation evidence: `python3 scripts/validate_scaffold.py`, GNAT analysis through `make compiler-proof`, Python adapter tests through `make test`, and Docker runtime smokes in GitHub Actions.

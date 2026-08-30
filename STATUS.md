@@ -1,20 +1,19 @@
 # ada-stakeholder Status
 
 - Phase target: deterministic first tranche
-- Phase state: parser-backed native-validated local tranche
-- Program state: local deterministic widening
-- Publication state: local only, no upstream tracking, no push
-- Current implementation: Ada source catalog parsed by `tree-sitter-ada`, with deterministic Python CLI rendering for the shared terminal contract
+- Phase state: hybrid Ada contract and portable CLI; native and Docker CI validation active
+- Program state: deterministic hybrid tranche complete; native Ada CLI and live-provider tranches deferred
+- Publication state: published at `stakeholder-circus/ada-stakeholder`; protected `main` pending first stable CI pass
+- Current implementation: Ada source catalog compiled with GNAT, with deterministic Python CLI rendering for the shared terminal contract
 
 ## Evidence
 
 - `python3 scripts/validate_scaffold.py`
 - `make compiler-proof`
 - `make test`
+- GitHub Actions contract, GNAT, Python, Docker, dependency, SAST, actionlint, and workflow-security gates
 
 ## Open
 
-- GNAT/Alire native Ada compilation is deferred because no Ada compiler is installed on this machine.
-- Docker validation is deferred for M1 resource safety.
+- Full native Ada terminal/runtime implementation remains deferred.
 - Full live-provider/runtime support is deferred to the second-pass provider rollout wave.
-- Publication remains blocked by the local-only policy for horizon scaffold and small-tranche work.

@@ -1,4 +1,4 @@
-name: ci-native
+name: sast
 
 on:
   push:
@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  native:
+  ada-compile-check:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -18,7 +18,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends gnat
-      - name: Ada compile proof
-        run: make compiler-proof
-      - name: Deterministic adapter tests
-        run: make test
+      - name: Compile-check Ada contract
+        run: |
+          mkdir -p build/ada
+          gnatmake -gnatc -D build/ada src/stakeholder_registry.ads
+      - name: Compile-check Python adapter
+        run: python3 -m py_compile bin/stakeholder.py

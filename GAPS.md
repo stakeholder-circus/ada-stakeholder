@@ -2,10 +2,8 @@
 
 ## Deferred in this tranche
 
-- GNAT/Alire compilation is not claimed.
-- Docker validation is not claimed in this M1-safe pass.
+- The terminal CLI is still a Python adapter rather than a full native Ada runtime.
 - Full live-provider/runtime support is deferred to the later provider rollout wave.
-- Remote publication and branch protection are not started.
 
 ## Implemented now
 
@@ -14,4 +12,5 @@
 - Normalized deterministic JSON and text output.
 - `--list-values` registry output.
 - Explicit fail-fast for `--experimental-provider` and unknown experimental flags.
-- Ada source parser proof through `tree-sitter-ada`.
+- Ada source compile proof through GNAT analysis mode.
+- Native and Docker validation plus workflow-security gates in GitHub Actions.

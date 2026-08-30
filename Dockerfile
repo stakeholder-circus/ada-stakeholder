@@ -13,7 +13,7 @@ RUN mkdir -p build/ada \
     && python3 -m py_compile bin/stakeholder.py \
     && tests/test_cli.sh
 
-FROM python:3.13-slim AS runtime
+FROM python:3.14-slim AS runtime
 WORKDIR /app
 RUN useradd --create-home --uid 10001 stakeholder
 COPY --from=build --chown=stakeholder:stakeholder /workspace/bin/ ./bin/

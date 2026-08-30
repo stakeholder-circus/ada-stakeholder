@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the Ada parser-backed deterministic first-tranche baseline."""
+"""Validate the hybrid Ada-contract deterministic tranche baseline."""
 
 from pathlib import Path
 
@@ -26,11 +26,18 @@ REQUIRED = [
     ".github/workflows/ci.yml",
     ".github/workflows/ci-native.yml",
     ".github/workflows/docker-smoke.yml",
+    ".github/workflows/actionlint.yml",
+    ".github/workflows/dependency-review.yml",
+    ".github/workflows/sast.yml",
+    ".github/workflows/security-analysis.yml",
+    ".github/dependabot.yml",
 ]
 
 FORBIDDEN_PHRASES = [
     "scaffold-only. Runtime implementation",
     "No deterministic runtime validation is claimed",
+    "local only, no upstream tracking",
+    "Docker validation is deferred",
 ]
 
 
@@ -40,13 +47,13 @@ def main() -> int:
         for path in missing:
             print(f"missing deterministic baseline file: {path}")
         return 1
-    for path in ["README.md", "STATUS.md", "GAPS.md", "PARITY.md", "docs/toolchain.md"]:
+    for path in ["AGENTS.md", "README.md", "STATUS.md", "GAPS.md", "PARITY.md", "docs/remotes.md", "docs/toolchain.md"]:
         text = Path(path).read_text(encoding="utf-8")
         for phrase in FORBIDDEN_PHRASES:
             if phrase in text:
                 print(f"stale scaffold wording in {path}: {phrase}")
                 return 1
-    print("ada parser-backed deterministic first-tranche baseline files present")
+    print("Ada contract, portable CLI, delivery, and security baseline files present")
     return 0
 
 

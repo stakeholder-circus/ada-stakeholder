@@ -1,6 +1,6 @@
 # ada-stakeholder Parity
 
-Parity classification: parser-backed deterministic first-tranche local implementation.
+Parity classification: hybrid Ada-contract-backed deterministic first tranche, native and Docker validated.
 
 ## Covered
 
@@ -16,6 +16,6 @@ Parity classification: parser-backed deterministic first-tranche local implement
 - Java comparison anchor: `java-stakeholder/src/*` deterministic parity runtime and provider boundary docs.
 - Canonical contract: `stakeholder-core/docs/program/*` and shared status ledgers.
 
-## Local Ada shape
+## Current Ada shape
 
-`src/stakeholder_registry.ads` is the Ada language artifact for the tranche catalog and is parser-validated with `tree-sitter-ada`. `bin/stakeholder.py` owns terminal argument parsing and deterministic rendering because the native Ada compiler toolchain is deferred.
+`src/stakeholder_registry.ads` is compiled with GNAT in analysis mode. `bin/stakeholder.py` owns terminal argument parsing and deterministic rendering until a full native Ada CLI replaces the hybrid adapter.
